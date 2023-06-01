@@ -1,41 +1,27 @@
 {
+    "root": true,
     "env": {
         "node": true,
-        "browser": true,
-        "es2021": true
+        "browser": true
     },
-    "extends": [
-        "eslint:recommended",
-        "airbnb/hooks",
-        "airbnb-typescript",
-        "plugin:react/recommended",
-        "plugin:react/jsx-runtime",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "plugin:prettier/recommended",
-        "plugin:import/recommended", 
-        "plugin:jsx-a11y/recommended", 
-        "plugin:react-hooks/recommended",
-        "plugin:import/recommended",
-        "plugin:import/typescript"
-    ],
-    // Specifying Parser
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
         },
-        "ecmaVersion": "latest",
-        "sourceType": "module",
         "tsconfigRootDir": "./",
-        "project": "tsconfig.json"
+        "sourceType": "module"
     },
-    // Configuring third-party plugins
-    "plugins": [
-        "react",
-        "@typescript-eslint"
+    "plugins": ["react", "@typescript-eslint/eslint-plugin"],
+    "extends": [
+        "plugin:@typescript-eslint/recommended", 
+        "plugin:prettier/recommended",
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime",
+        "plugin:jsx-a11y/recommended", 
+        "plugin:react-hooks/recommended"
     ],
-    // Resolve imports
+    "ignorePatterns": [".eslintrc"],
     "settings": {
         "react": {
             "version": "18.x"
@@ -43,21 +29,9 @@
     },
     "rules": {
         "linebreak-style": "off",
-        // Configure prettier
-        "prettier/prettier": [
-            "error",
-            {
-                "semi": false,
-                "tabWidth": 4,
-                "printWidth": 100,
-                "singleQuote": true,
-                "trailingComma": "all",
-                "jsxSingleQuote": true,
-                "bracketSpacing": true
-            }
-        ],
+        "prettier/prettier": "warn",
         // Disallow the `any` type.
-        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/ban-types": [
             "error",
             {
@@ -69,7 +43,6 @@
         ],
         "react-hooks/exhaustive-deps": "off",
         // Enforce the use of the shorthand syntax.
-        "object-shorthand": "error",
-        "no-console": "warn"
+        "object-shorthand": "error"
     }
 }
